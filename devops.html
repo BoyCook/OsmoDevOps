@@ -17,7 +17,9 @@
         		<thead>
         			<tr>
         				<th>Project</th>
-        				<th>Status</th>
+        				<th>Build Status</th>
+        				<th>Coverage Status</th>
+        				<th>Dependency Status</th>
         			</tr>
         		</thead>
         		<tbody>
@@ -25,7 +27,9 @@
 	        			<tr>
 	        				<td>{{this.name}}</td>
 	        				<td><a href="https://travis-ci.org/{{this.full_name}}" target="_blank"><img alt="Build Status" src="https://travis-ci.org/{{this.full_name}}.png?branch=master"></a></td>
-	        			</tr>        				                
+	        				<td><a href="https://coveralls.io/r/{{this.full_name}}" target="_blank"><img alt="Coverage Status" src="https://coveralls.io/repos/{{this.full_name}}.png"></a></td>	
+	        				<td><a href="https://gemnasium.com/{{this.full_name}}" target="_blank"><img alt="Dependency Status" src="https://gemnasium.com/{{this.full_name}}.png"></a></td>	
+	        			</tr> 
 		            {{/each}}
         		<tbody>
         	</table>

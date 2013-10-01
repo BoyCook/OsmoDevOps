@@ -22,9 +22,8 @@ DevOps.prototype.getRepos = function(name) {
 	var context = this;
 	var url = this.urls.github + '/users/' + name +  '/repos?per_page=100';
 	var callBack = function(data) {
-		var repos = data;
-		context.repos[name] = repos;
-		$('.content').append(context.templates.list(repos));
+		context.repos[name] = data;
+		$('.content').append(context.templates.list({ name: name, repos: data}));
 	};
 	$.getJSON(url, callBack);
 };

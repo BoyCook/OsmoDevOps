@@ -1,6 +1,6 @@
 
 function DevOps() {
-	this.accounts = ['tiddlyweb', 'TiddlySpace'];
+	this.accounts = ['tiddlyweb', 'TiddlySpace', 'TiddlyWiki'];
 	this.repos = {};
 	this.urls = {
 		github: 'https://api.github.com',

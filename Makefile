@@ -28,6 +28,7 @@ html-cov-report:
 
 push:
 	@for asset in $(ASSETS); do tsapp push_hard osmodevops `echo $$asset | cut -d '/' -f 2` ; done
+	tsapp push_hard osmodevops devops.html
 
 push-assets:
 	echo assets

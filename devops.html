@@ -6,25 +6,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-		<!-- <table>
-		   <thead>
-		       <tr>    
-		          <th>Project</th><th>Status</th>
-		      </tr>
-		   </thead>
-		   <tbody>
-		      <tr>
-		         <td>TiddlyWeb</td>
-		         <td><a href="https://travis-ci.org/tiddlyweb/tiddlyweb"><img alt="Build Status" src="https://travis-ci.org/tiddlyweb/tiddlyweb.png?branch=master"></a></td>
-		      </tr> 
-		      <tr>
-		         <td>TiddlySpace</td>
-		         <td><a href="https://travis-ci.org/tiddlyweb/tiddlyweb"><img alt="Build Status" src="https://travis-ci.org/tiddlyweb/tiddlyweb.png?branch=master"></a></td>
-		      </tr> 
-		   </tbody>
-		</table> -->
+    	<header>
+    		<h1>Osmo DevOps Tool</h1>
+    	</header>
+    	<section class="content">
+    		
+    	</section>    	
+        <script id="project-list-template" type="text/x-handlebars-template">
+        	<table>
+        		<thead>
+        			<tr>
+        				<th>Project</th>
+        				<th>Status</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+		            {{#each this}}
+	        			<tr>
+	        				<td>{{this.name}}</td>
+	        				<td><a href="https://travis-ci.org/{{this.full_name}}" target="_blank"><img alt="Build Status" src="https://travis-ci.org/{{this.full_name}}.png?branch=master"></a></td>
+	        			</tr>        				                
+		            {{/each}}
+        		<tbody>
+        	</table>
+        </script>                		
         <script src="http://tiddlyspace.com/bags/common/tiddlers/backstage.js"></script>        
         <script type="text/javascript" src="/bags/common/tiddlers/jquery.js"></script>    	
+        <script type="text/javascript" src="/bags/spaceui_public/tiddlers/handlebars.js"></script>
 		<script type="text/javascript" src="/bags/osmodevops_public/tiddlers/devops.js"></script>
 	</body>
 </html>

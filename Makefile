@@ -1,5 +1,5 @@
 
-TESTS = test/spec
+TESTS = test/*Spec.js
 REPORTER = spec
 COVERAGE_REPORT = ./coverage/lcov.info
 COVERALLS = ./node_modules/coveralls/bin/coveralls.js
@@ -38,11 +38,6 @@ push-custom:
 
 npm:
 	npm publish ./
-
-auth: authfile
-
-authfile:
-	echo "auth_token:$(TIDDLYSPACE_USERNAME):$(TIDDLYSPACE_PASSWORD)" >> .tsapp
 
 check:
 	travis-lint .travis.yml

@@ -71,13 +71,6 @@ DevOps.prototype.setupCache = function() {
 	}
 };
 
-var app = undefined;
-
-$(document).ready(function(){
-	app = new DevOps();
-	app.loadRepos();
-});
-
 if (!(typeof exports === "undefined")) {
     exports.DevOps = DevOps;
 }

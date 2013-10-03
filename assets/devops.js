@@ -8,9 +8,9 @@ function DevOps() {
 	}
 	this.templates = {};
 	this.loadTemplates();
-	this.currentUser = tiddlyweb.status.username;
+	this.spaceName = tiddlyweb.space ? tiddlyweb.space.name : 'devops';
     this.baseURL = "http://" + window.location.hostname+ ':' + window.location.port;
-    this.space = new Space(this.baseURL, this.currentUser, this);
+    this.space = new Space(this.baseURL, this.spaceName, this);
 	// $.getJSON('https://api.travis-ci.org/repos?owner_name=BoyCook')
 	// $.getJSON('https://api.github.com/users/BoyCook/repos?per_page=100')	
 	// 'https://api.travis-ci.org/repos?owner_name=BoyCook'
@@ -24,7 +24,7 @@ DevOps.prototype.setup = function() {
 
 DevOps.prototype.loadConfig = function(success) {
 	var context = this;
-    this.space.fetchTiddler({ title: 'DevOpsConfig', bag: this.currentUser + '_public'}, 
+    this.space.fetchTiddler({ title: 'DevOpsConfig', bag: this.spaceName + '_public'}, 
         function(tiddler) {
         	var config = JSON.parse(tiddler.text);
         	context.config = config;

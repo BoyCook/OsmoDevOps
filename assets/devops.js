@@ -1,10 +1,12 @@
 
 function DevOps() {
-	this.config.accounts = {
-		tiddlyweb: '*', 
-		TiddlySpace: '*', 
-		TiddlyWiki: '*',
-		BoyCook: ['SpaceUI', 'OsmoDevOps']
+	this.config = {
+		accounts: {
+			tiddlyweb: '*', 
+			TiddlySpace: '*', 
+			TiddlyWiki: '*',
+			BoyCook: ['SpaceUI', 'OsmoDevOps']
+		}		
 	};
 	this.accounts = {};
 	this.urls = {
@@ -24,10 +26,11 @@ DevOps.prototype.loadRepos = function() {
 		var repos = this.config.accounts[account];
 		if (repos instanceof Array) {
 			// Get each repo
+			$('.content').append(this.templates.list({ name: account, repos: []}));
 			for (var i=0,len=repos.length; i<len; i++) {
 				this.getRepo(account, repos[i]);
 			}
-		} else if (name === '*') {
+		} else if (repos === '*') {
 			// Get account repos
 			this.getAccountRepos(account);
 		} 
@@ -46,18 +49,19 @@ DevOps.prototype.getAccountRepos = function(account) {
 
 DevOps.prototype.getRepo = function(account, name) {
 	var context = this;
-	var url = this.urls.github + '/users/' + account +  '/' + name;
+	var url = this.urls.github + '/repos/' + account +  '/' + name;
 	var callBack = function(data) {
 		context.accounts[account].push(data);
-		//TODO - append single row to table at a time
-		// $('.content').append(context.templates.list({ name: account, repos: data}));
+		var html = context.templates.item(data);
+		$("section[data-project='" + account + "'] table tbody").append(html)
 	};
 	$.getJSON(url, callBack);
 };
 
 DevOps.prototype.loadTemplates = function() {
 	this.templates = {
-		list: Handlebars.compile($("#project-list-template").html())
+		list: Handlebars.compile($("#project-list-template").html()),
+		item: Handlebars.compile($("#project-item-template").html())
 	};	
 };
 

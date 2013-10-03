@@ -1,5 +1,5 @@
 
-TESTS = test/spec
+TESTS = test/*Spec.js
 REPORTER = spec
 COVERAGE_REPORT = ./coverage/lcov.info
 COVERALLS = ./node_modules/coveralls/bin/coveralls.js
@@ -27,8 +27,8 @@ html-cov-report:
 	istanbul report html	
 
 push:
-	@for asset in $(ASSETS); do tsapp push_hard osmodevops `echo $$asset | cut -d '/' -f 2` ; done
-	tsapp push_hard osmodevops devops.html
+	@for asset in $(ASSETS); do tsapp push devops `echo $$asset | cut -d '/' -f 2` ; done
+	tsapp push devops devops.html
 
 push-assets:
 	echo assets
@@ -38,11 +38,6 @@ push-custom:
 
 npm:
 	npm publish ./
-
-auth: authfile
-
-authfile:
-	echo "auth_token:$(TIDDLYSPACE_USERNAME):$(TIDDLYSPACE_PASSWORD)" >> .tsapp
 
 check:
 	travis-lint .travis.yml

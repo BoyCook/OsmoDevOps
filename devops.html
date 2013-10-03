@@ -13,32 +13,44 @@
     		
     	</section>    	
         <script id="project-list-template" type="text/x-handlebars-template">
-        	<table>
-        		<thead>
-        			<tr>
-        				<th>Project</th>
-        				<th>Build Status</th>
-        				<th>Coverage Status</th>
-        				<th>Dependency Status</th>
-        			</tr>
-        		</thead>
-        		<tbody>
-                    <h2>{{this.name}}</h2>
-		            {{#each this.repos}}
-	        			<tr>
-	        				<td>{{this.name}}</td>
-	        				<td><a href="https://travis-ci.org/{{this.full_name}}" target="_blank"><img alt="Build Status" src="https://travis-ci.org/{{this.full_name}}.png?branch=master"></a></td>
-	        				<td><a href="https://coveralls.io/r/{{this.full_name}}" target="_blank"><img alt="Coverage Status" src="https://coveralls.io/repos/{{this.full_name}}/badge.png?branch=master"></a></td>	
-	        				<td><a href="https://gemnasium.com/{{this.full_name}}" target="_blank"><img alt="Dependency Status" src="https://gemnasium.com/{{this.full_name}}.png"></a></td>	
-	        			</tr> 
-		            {{/each}}
-        		<tbody>
-        	</table>
+            <section data-project="{{this.name}}">
+            	<table>
+            		<thead>
+            			<tr>
+            				<th>Project</th>
+            				<th>Build Status</th>
+            				<th>Coverage Status</th>
+            				<th>Dependency Status</th>
+            			</tr>
+            		</thead>
+            		<tbody>
+                        <h2>{{this.name}}</h2>
+    		            {{#each this.repos}}
+    	        			<tr>
+    	        				<td>{{this.name}}</td>
+    	        				<td><a href="https://travis-ci.org/{{this.full_name}}" target="_blank"><img alt="Build Status" src="https://travis-ci.org/{{this.full_name}}.png?branch=master"></a></td>
+    	        				<td><a href="https://coveralls.io/r/{{this.full_name}}" target="_blank"><img alt="Coverage Status" src="https://coveralls.io/repos/{{this.full_name}}/badge.png?branch=master"></a></td>	
+    	        				<td><a href="https://gemnasium.com/{{this.full_name}}" target="_blank"><img alt="Dependency Status" src="https://gemnasium.com/{{this.full_name}}.png"></a></td>	
+    	        			</tr> 
+    		            {{/each}}
+            		</tbody>
+            	</table>
+            </section>
         </script>                		
+        <script id="project-item-template" type="text/x-handlebars-template">
+            <tr>
+                <td>{{this.name}}</td>
+                <td><a href="https://travis-ci.org/{{this.full_name}}" target="_blank"><img alt="Build Status" src="https://travis-ci.org/{{this.full_name}}.png?branch=master"></a></td>
+                <td><a href="https://coveralls.io/r/{{this.full_name}}" target="_blank"><img alt="Coverage Status" src="https://coveralls.io/repos/{{this.full_name}}/badge.png?branch=master"></a></td>    
+                <td><a href="https://gemnasium.com/{{this.full_name}}" target="_blank"><img alt="Dependency Status" src="https://gemnasium.com/{{this.full_name}}.png"></a></td>    
+            </tr> 
+        </script>                               
         <script src="http://tiddlyspace.com/bags/common/tiddlers/backstage.js"></script>        
         <script src="/status.js"></script>
         <script type="text/javascript" src="/bags/common/tiddlers/jquery.js"></script>    	
         <script type="text/javascript" src="/bags/spaceui_public/tiddlers/handlebars.js"></script>
+		<script type="text/javascript" src="/bags/devops_public/tiddlers/devops.js"></script>
+        <script type="text/javascript" src="/bags/devops_public/tiddlers/default.js"></script>
         <script type="text/javascript" src="/bags/spaceui_public/tiddlers/http.js"></script>
         <script type="text/javascript" src="/bags/spaceui_public/tiddlers/space.js"></script>
 		<script type="text/javascript" src="/bags/osmodevops_public/tiddlers/devops.js"></script>

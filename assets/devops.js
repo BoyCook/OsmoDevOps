@@ -8,7 +8,7 @@ function DevOps() {
 	}
 	this.templates = {};
 	this.loadTemplates();
-	this.spaceName = tiddlyweb.space ? tiddlyweb.space.name : 'devops';
+	this.spaceName = tiddlyweb.status.space ? tiddlyweb.status.space.name : 'devops';
     this.baseURL = "http://" + window.location.hostname+ ':' + window.location.port;
     this.space = new Space(this.baseURL, this.spaceName, this);
 	// $.getJSON('https://api.travis-ci.org/repos?owner_name=BoyCook')
